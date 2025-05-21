@@ -1,10 +1,10 @@
 import Logo from "@/assets/Logo.png";
-import type { Page } from "../../shared/Page";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
+import type { Page } from "../types/Page";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "./link";
-import ActionButton from "../../shared/ActionButton";
+import ActionButton from "../components/ActionButton";
 
 type Props = {
   selectedPage: string;
@@ -16,11 +16,10 @@ const Navbar = ({selectedPage, setSelectedPage, isPageTop}: Props) => {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const flexBetween = "flex items-center justify-between";
   const isBigScreen = useMediaQuery("(min-width: 1060px)");
-  const navBarColor = isPageTop ?  "": "bg-red-100" ;
 
   return (
     <nav>
-        <div className={`${flexBetween} fixed top-0 z-30 w-full py-6 ${navBarColor}`}>
+        <div className={`${flexBetween} ${isPageTop ?  "": "bg-red-200"} fixed top-0 z-30 w-full py-6`}>
           <div className={`${flexBetween} mx-auto w-5/6`}>
             <div className={`${flexBetween} w-full gap-16`}>
                 <img src={Logo} alt="logo" />
@@ -67,7 +66,7 @@ const Navbar = ({selectedPage, setSelectedPage, isPageTop}: Props) => {
                         <Link page="Benefits" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
                         <Link page="Our Classes" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
                         <Link page="Contact us" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
-                      </div>
+            </div>
 
           </div>
         )}

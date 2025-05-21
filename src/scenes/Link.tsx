@@ -1,5 +1,5 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import type { Page } from "../../shared/Page";
+import type { Page } from "../types/Page";
 
 type Props = {
     page:string;
@@ -13,7 +13,7 @@ const Link = ({page, selectedPage, setSelectedPage}: Props) => {
   return (
     <AnchorLink
         href={`#${pageId}`}
-        className={`${selectedPage == pageId? "text-red-950" : ""} transition duration-500 hover:text-red-300`}
+        className={`${selectedPage == pageId? "text-red-800" : ""} transition duration-500 hover:text-red-300 font-bold font-sans`}
         onClick={() => {setSelectedPage(pageId);}}
     >
         {page}
