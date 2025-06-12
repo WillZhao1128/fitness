@@ -1,7 +1,8 @@
+
 import { motion } from "framer-motion";
 import { Page } from "../types/Page";
 import Header from "../components/Header";
-import { useMediaQuery } from "../hooks/useMediaQuery";
+// import { useMediaQuery } from "../hooks/useMediaQuery"; // Removed as isBigScreen is not used
 import type { FitnessClassType } from "../types/FitnessClassType";
 import image1 from "../assets/image1.png";
 import image2 from "../assets/image2.png";
@@ -16,7 +17,7 @@ type Props = {
 }
 
 const Classes = ({setSelectedPage}: Props) => {
-    const isBigScreen = useMediaQuery("(min-width:1060px)");
+    // const isBigScreen = useMediaQuery("(min-width:1060px)"); // Removed as isBigScreen is not used
     const classes: FitnessClassType[] = [
         {
             image: image1,
@@ -55,9 +56,9 @@ const Classes = ({setSelectedPage}: Props) => {
         <motion.div
             onViewportEnter={() => setSelectedPage(Page.OurClasses)}>
 
-            <motion.div 
+            <motion.div
             className="mx-auto w-5/6"
-            initial="hidden" 
+            initial="hidden"
             whileInView="visible"
             viewport={{once: true, amount: 0.5}}
             transition={{duration:0.5}}
@@ -80,7 +81,7 @@ const Classes = ({setSelectedPage}: Props) => {
                     {classes.map( (item:FitnessClassType, i) => (<FitnessClass key={`${i}-${item.name}`} fitnessClass={item}/>))}
                 </ul>
             </div>
-                
+
         </motion.div>
     </section>);
 };

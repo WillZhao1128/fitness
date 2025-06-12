@@ -3,7 +3,7 @@ import type { Page } from "../types/Page";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
-import Link from "./link";
+import Link from "./Link";
 import ActionButton from "../components/ActionButton";
 
 type Props = {
